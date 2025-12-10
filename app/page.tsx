@@ -3,6 +3,7 @@ import AboutSection from "./components/AboutSection";
 import CampLocationCard from "./components/CampLocationCard";
 import CampsStats from "./components/CampsStats";
 import HeroSection from "./components/HeroSection";
+import ProgramBenefits from "./components/ProgramBenefits";
 
 export default function HomePage() {
   return (
@@ -11,6 +12,7 @@ export default function HomePage() {
       <AboutSection />
       <CampsStats />
       <CampLocationCard />
+      <ProgramBenefits />
     </main>
   );
 }

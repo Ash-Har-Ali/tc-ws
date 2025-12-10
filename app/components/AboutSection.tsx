@@ -1,14 +1,12 @@
 "use client";
-
 import React from "react";
-import Image from "next/image";
 
 export default function AboutSection() {
   return (
-    <section className="relative flex flex-col lg:flex-row items-center justify-between gap-10 px-6 lg:px-20 py-20">
-      {/* Left Content */}
+    <section className="relative flex flex-col max-w-7xl mx-auto lg:flex-row items-center justify-between gap-10 px-6 py-20">
+      {/* Left side */}
       <div className="flex-1 max-w-xl">
-        <h2 className="text-3xl lg:text-4xl font-black text-purple-700 leading-tight tracking-tight mb-4">
+        <h2 className="text-2xl lg:text-3xl font-black text-purple-700 leading-tight tracking-wider mb-4">
           TINKERCHAMPS IS MORE THAN A CAMP — IT’S A LIFE-DESIGN EXPERIENCE THAT
           TRANSFORMS HOW STUDENTS THINK, LEARN, AND CREATE.
         </h2>
@@ -21,8 +19,8 @@ export default function AboutSection() {
         </p>
       </div>
 
-      {/* Right Video Section */}
-      <div className="relative flex-1 flex justify-center">
+      {/* Right side: video + badge */}
+      <div className="relative flex-1 flex md:justify-end justify-center">
         <div className="relative rounded-2xl overflow-hidden shadow-xl border-4 border-yellow-400">
           <video
             src="/videos/tinkerchamps.mp4"
@@ -31,33 +29,16 @@ export default function AboutSection() {
             loop
             playsInline
             className="rounded-2xl object-cover w-[350px] lg:w-[400px] h-[450px]"
-          />
+          >
+            Your browser does not support the video tag.
+          </video>
         </div>
-
-        {/* Badge */}
-        <div className="absolute -top-8 -left-8 bg-purple-600 text-white rounded-full w-28 h-28 flex flex-col items-center justify-center shadow-lg">
+        <div className="relative md:absolute top-10 md:left-40 right-10 bg-purple-600 text-white rounded-full w-30 h-30 flex flex-col items-center justify-center shadow-lg">
           <span className="text-3xl font-extrabold">17+</span>
-          <span className="text-[10px] font-semibold uppercase tracking-wide text-white/80">
+          <span className="text-[10px] font-semibold uppercase tracking-wide text-white/80 justify-center text-center">
             Camps Completed
           </span>
         </div>
-      </div>
-
-      {/* Decorative Curve */}
-      <div className="absolute bottom-0 left-0 w-full h-10 overflow-hidden">
-        <svg
-          viewBox="0 0 500 50"
-          preserveAspectRatio="none"
-          className="w-full h-full text-purple-400"
-        >
-          <path
-            d="M0,30 C150,80 350,0 500,30 L500,50 L0,50 Z"
-            fill="none"
-            stroke="purple"
-            strokeDasharray="8 8"
-            strokeWidth="2"
-          />
-        </svg>
       </div>
     </section>
   );

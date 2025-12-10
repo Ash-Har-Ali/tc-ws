@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function HeroSection() {
   return (
-    <section id="hero" className="p-2 rounded-xl min-h-screen">
+    <section id="hero" className="p-2 rounded-xl ">
       <div className="relative bg-linear-to-r from-[#4C2380] to-[#7F3EDF]  text-white py-16 2xl:py-30 rounded-xl overflow-hidden ">
         {/* Grid overlay */}
         <div className="absolute inset-0 bg-[url('/Assets/images/hero-banner.webp')] md:bg-[url('/Assets/images/hero-banner.webp')] bg-cover bg-center  opacity-100 pointer-events-none z-0" />

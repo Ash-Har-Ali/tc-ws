@@ -1,95 +1,102 @@
 "use client";
-
 import React from "react";
 import Image from "next/image";
 
-export default function CampLocationCard() {
+export default function CampCard() {
   return (
-    <section className="mx-auto flex max-w-6xl flex-col items-center gap-10 px-6 py-16 lg:flex-row lg:items-stretch">
-      {/* LEFT: Image stack card */}
-      <div className="relative w-full max-w-md rounded-4xl bg-[#7F3EDF] p-3 shadow-xl">
-        {/* Main image */}
-        <div className="overflow-hidden rounded-[28px]">
+    <section className="mx-auto flex max-w-6xl flex-col items-center justify-center gap-18 px-6 py-16 lg:flex-row">
+      {/* LEFT SECTION */}
+      <div className="relative w-full max-w-lg rounded-[28px] bg-[#7F3EDF]  shadow-lg">
+        {/* Main Image */}
+        <div className="overflow-hidden rounded-3xl">
           <Image
-            src="/images/campus-main.jpg"
-            alt="The White School International campus"
+            src="/images/main-campus.jpg"
+            alt="The White School International"
             width={480}
             height={360}
-            className="h-[260px] w-full object-cover md:h-80"
+            className="h-90 w-full object-cover"
           />
         </div>
 
-        {/* Stacked small images on the right */}
-        <div className="pointer-events-none absolute right-[-35px] top-16 flex flex-col gap-4">
-          <div className="overflow-hidden rounded-3xl shadow-lg">
+        {/* Floating Images */}
+        <div className="absolute right-[-45px] top-10 flex flex-col gap-5">
+          <div className="overflow-hidden rounded-[18px] border-[3px] border-white shadow-lg">
             <Image
-              src="/images/campus-top.jpg"
+              src="/images/campus-small1.jpg"
               alt="Campus path"
-              width={170}
-              height={130}
-              className="h-[120px] w-[150px] object-cover md:h-[130px] md:w-[170px]"
+              width={150}
+              height={100}
+              className="h-[110px] w-[150px] object-cover"
             />
           </div>
-          <div className="overflow-hidden rounded-3xl shadow-lg">
+          <div className="overflow-hidden rounded-[18px] border-[3px] border-white shadow-lg">
             <Image
-              src="/images/campus-bottom.jpg"
-              alt="Campus greenery"
-              width={170}
-              height={130}
-              className="h-[120px] w-[150px] object-cover md:h-[130px] md:w-[170px]"
+              src="/images/campus-small2.jpg"
+              alt="Campus building"
+              width={150}
+              height={100}
+              className="h-[110px] w-[150px] object-cover"
             />
           </div>
         </div>
 
         {/* Bottom location bar */}
-        <div className="mt-4 flex items-center gap-2 rounded-3xl bg-[#6B2FCC] px-4 py-3 text-sm font-semibold text-white">
-          <span className="text-lg">📍</span>
-          <span>The White School International, Kozhikode</span>
+        <div className="mt-4 flex items-start gap-3 rounded-b-[20px] bg-[#5E2AA5] px-5 py-3 text-white">
+          <span className="text-lg mt-">📍</span>
+          <div className="flex flex-col leading-tight">
+            <span className="font-semibold text-base">The White School</span>
+            <span className="text-sm font-medium">
+              International, Kozhikode
+            </span>
+          </div>
         </div>
       </div>
 
-      {/* RIGHT: Info card */}
-      <div className="w-full max-w-xl rounded-4xl bg-[#F1E6FF] px-8 py-10 shadow-md">
-        {/* Logo / heading */}
+      {/* RIGHT SECTION */}
+      <div className="w-full max-w-lg rounded-[28px] bg-[#EDE0FF] px-6 py-10 shadow-md">
+        {/* Logo */}
         <div className="flex justify-center">
-          {/* Replace with your real logo image */}
           <Image
             src="/Assets/images/logo.webp"
             alt="TinkerChamps Logo"
-            width={260}
-            height={120}
-            className="h-auto w-[220px] md:w-[260px]"
+            width={250}
+            height={250}
+            className="h-auto w-[230px] md:w-[230px]"
           />
         </div>
 
-        {/* Pills grid */}
-        <div className="mt-10 grid gap-4 md:grid-cols-2">
-          <button className="flex items-center gap-3 rounded-2xl bg-white px-4 py-3 text-sm font-semibold text-[#4C2380] shadow-sm">
-            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FFE3A4] text-[#4C2380] text-lg">
+        {/* Info Grid */}
+        <div className=" grid gap-4 md:grid-cols-2">
+          {/* Date */}
+          <div className="flex items-center gap-3 rounded-xl bg-white px-4 py-3 text-sm font-semibold text-[#4C2380] shadow-sm">
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FDD835]/40 text-lg">
               🗓️
             </span>
-            <span>December 24–26</span>
-          </button>
+            December 24 – 26
+          </div>
 
-          <button className="flex items-center gap-3 rounded-2xl bg-white px-4 py-3 text-sm font-semibold text-[#4C2380] shadow-sm">
-            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FFE3A4] text-[#4C2380] text-lg">
+          {/* Duration */}
+          <div className="flex items-center gap-3 rounded-xl bg-white px-4 py-3 text-sm font-semibold text-[#4C2380] shadow-sm">
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FDD835]/40 text-lg">
               ⏱️
             </span>
-            <span>3 Days, 2 Nights</span>
-          </button>
+            3 Days, 2 Nights
+          </div>
 
-          <button className="flex items-center gap-3 rounded-2xl bg-white px-4 py-3 text-sm font-semibold text-[#4C2380] shadow-sm">
-            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FFE3A4] text-[#4C2380] text-lg">
+          {/* Venue */}
+          <div className="flex items-center gap-3 rounded-xl bg-white px-4 py-3 text-sm font-semibold text-[#4C2380] shadow-sm">
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FDD835]/40 text-lg">
               🎓
             </span>
-            <span>De&apos; Lead International</span>
-          </button>
+            De&apos; Lead International
+          </div>
 
-          <button className="flex items-center gap-3 rounded-2xl bg-[#FFC52B] px-4 py-3 text-sm font-semibold text-[#4C2380] shadow-sm">
-            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/80 text-[#4C2380] text-lg">
+          {/* Book Now */}
+          <button className="flex items-center gap-3 rounded-xl bg-[#FFC52B] px-4 py-3 text-sm font-semibold text-[#4C2380] shadow-md hover:bg-[#ffce4d] transition">
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/80 text-lg">
               📨
             </span>
-            <span>Book Now</span>
+            Book Now
           </button>
         </div>
       </div>

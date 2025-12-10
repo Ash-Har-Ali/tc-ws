@@ -43,8 +43,8 @@ export default function HeroSection() {
           </div>
 
           {/* Image */}
-          <div className="hidden md:w-1/2 lg:flex">
-            <div className="relative md:h-130 md:w-120">
+          <div className="hidden md:w-1/2 lg:flex justify-end mt-3">
+            <div className="relative md:h-130 md:w-130">
               <Image
                 src="/Assets/images/hero-image.webp"
                 alt="Students learning"

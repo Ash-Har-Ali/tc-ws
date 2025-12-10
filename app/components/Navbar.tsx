@@ -63,14 +63,14 @@ export default function Navbar() {
           animate={{
             y: isScrolled ? 8 : 0,
             opacity: 1,
-            borderRadius: isScrolled ? 16 : 0,
+            borderRadius: isScrolled ? 16 : 16,
             backgroundColor: isScrolled ? "#562190" : "rgba(0,0,0,0)",
             boxShadow: isScrolled ? "0 0 24px rgba(86,33,144,0.4)" : "none",
           }}
           transition={{ type: "spring", stiffness: 200, damping: 26 }}
           style={{
-            backdropFilter: isScrolled ? "blur(10px)" : "none",
-            WebkitBackdropFilter: isScrolled ? "blur(10px)" : "none",
+            backdropFilter: isScrolled ? "none" : "none",
+            WebkitBackdropFilter: isScrolled ? "none" : "none",
           }}
           className="max-w-7xl mx-auto px-5 mt-2"
         >

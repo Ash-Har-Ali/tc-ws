@@ -13,11 +13,11 @@ export default function HeroSection() {
         <div className="flex max-w-7xl mx-auto flex-col md:flex-row px-6 justify-between">
           {/* Text Content */}
           <div className="space-y-6 text-white z-10 pt-25 py-20">
-            <h1 className="text-4xl font-black leading-tight sm:text-4xl lg:text-5xl">
+            <h1 className="text-4xl font-black font-primary leading-tight tracking-wider lg:text-5xl">
               REWIRING
               <br />
               YOUNG MINDS FOR
-              <br />A LIMITLESS <span className="text-yellow-400">FUTURE</span>
+              <br />A LIMITLESS <span className="text-[#FBC333]">FUTURE</span>
             </h1>
 
             <p className="max-w-xl text-sm leading-relaxed text-white/80">

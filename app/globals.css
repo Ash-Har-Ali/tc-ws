@@ -19,6 +19,14 @@
   }
 }
 
+@layer utilities {
+  .hero-overlay {
+    background: radial-gradient(circle at top left, #facc15 0, transparent 55%),
+      radial-gradient(circle at bottom right, #ec4899 0, transparent 55%);
+    opacity: 0.35;
+  }
+}
+
 body {
   background: var(--background);
   color: var(--foreground);

@@ -18,46 +18,6 @@ export default function HomePage() {
 
         <div className="relative mx-auto max-w-6xl px-4 pb-20 pt-5 lg:px-0">
           {/* NAVBAR */}
-          <header className="flex items-center justify-between gap-4 rounded-3xl bg-white/8 px-6 py-4 backdrop-blur border border-white/20">
-            {/* logo */}
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-yellow-400 text-xs font-black text-purple-900">
-                TC
-              </div>
-              <div className="leading-tight">
-                <p className="text-sm font-semibold text-white">TinkerChamps</p>
-                <p className="text-[10px] text-white/70">
-                  Life Design Adventure Camp
-                </p>
-              </div>
-            </div>
-
-            {/* nav links */}
-            <nav className="hidden items-center gap-6 text-xs font-medium text-white/80 md:flex">
-              <a href="#about" className="hover:text-white">
-                About
-              </a>
-              <a href="#camps" className="hover:text-white">
-                Camps
-              </a>
-              <a href="#programs" className="hover:text-white">
-                Experiences
-              </a>
-              <a href="#testimonials" className="hover:text-white">
-                Parents Speak
-              </a>
-            </nav>
-
-            {/* buttons */}
-            <div className="flex items-center gap-3">
-              <button className="hidden rounded-full border border-white/50 px-4 py-2 text-[11px] font-semibold text-white hover:bg-white/10 md:inline-block">
-                Chat with Academic Counsellor
-              </button>
-              <button className="rounded-full bg-yellow-400 px-4 py-2 text-[11px] font-semibold text-purple-900 shadow-lg shadow-yellow-500/40">
-                Book Your Seat
-              </button>
-            </div>
-          </header>
 
           {/* HERO CONTENT */}
           <div className="mt-10 grid items-center gap-10 lg:grid-cols-2">

@@ -4,6 +4,7 @@ import CampLocationCard from "./components/CampLocationCard";
 import CampsStats from "./components/CampsStats";
 import HeroSection from "./components/HeroSection";
 import ProgramBenefits from "./components/ProgramBenefits";
+import TestimonialsSection from "./components/TestimonialsSection";
 
 export default function HomePage() {
   return (
@@ -13,6 +14,7 @@ export default function HomePage() {
       <CampsStats />
       <CampLocationCard />
       <ProgramBenefits />
+      <TestimonialsSection />
     </main>
   );
 }

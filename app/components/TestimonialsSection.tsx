@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Testimonial {
   id: number;
@@ -15,21 +16,39 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: "Mrs. Shahana F",
-    role: "Parent of Adiyan",
+    name: "Dr. Bindhu Ann Thomas",
+    role: "Director, Kochi Business School",
     quote: "“My son came back as a completely different version of himself.”",
     message:
-      "“I sent Adiyan to TinkerChamps hoping he would learn something new, but what he returned with shocked us. He now takes initiative, solves problems calmly, and communicates with so much more confidence. Three days changed what three years of school couldn’t.”",
-    avatar: "/images/parent1.jpg",
+      "“From shy observers to engaged participants, TinkerChamps has had a profound impact. Students are now confident, well-rounded individuals with a thirst for knowledge..”",
+    avatar: "/Assets/images/test1.png",
   },
   {
     id: 2,
-    name: "Mr. Ramesh Nair",
-    role: "Parent of Anaya",
+    name: "Mr.Arjun Govind",
+    role: "Asst. Professor, Amity Global Business School",
     quote: "“TinkerChamps helped my daughter discover her inner leader.”",
     message:
-      "“Anaya came back from TinkerChamps more confident, curious, and expressive. She started leading group projects in school and tackling challenges with enthusiasm.”",
-    avatar: "/images/parent2.jpg",
+      "“Building a better tomorrow starts today! TinkerChamps cultivates critical thinking and social awareness, empowering students to tackle real-world challenges.”",
+    avatar: "/Assets/images/test2.png",
+  },
+  {
+    id: 3,
+    name: "Roshan John",
+    role: "Project Coordinator, PRISM Project",
+    quote: "“My son came back as a completely different version of himself.”",
+    message:
+      "“Gone are the days of shy students hiding in the back. TinkerChamps@School fostered collaboration and communication, making my classroom a vibrant hub of social learning and growth.”",
+    avatar: "/Assets/images/test3.png",
+  },
+  {
+    id: 4,
+    name: "Ramkamal Manoj",
+    role: "Mentor, Catalyst for Student Start-ups",
+    quote: "“TinkerChamps helped my daughter discover her inner leader.”",
+    message:
+      "“Fear undermines self-confidence. When parents and children doubt their abilities, they become hesitant to march towards their future skills development and, unsure if they can handle the situation or if they will succeed. What I have witnessed at TinkerChamps is that students have from hesitant learners to enthusiastic explorers, the program has truly transformed them and tinkered with their parents to rekindle their childhood dreams. They are now eager problem-solvers and innovative thinkers, ready to take on any challenge. This program is not to prepare students just for the classroom but for life.”",
+    avatar: "/Assets/images/test4.png",
   },
 ];
 
@@ -62,18 +81,18 @@ export default function TestimonialsSection() {
       </div>
 
       {/* Purple card */}
-      <div className="relative mx-auto flex max-w-6xl flex-col gap-10 rounded-4xl bg-[#562190] px-6 py-10 text-white md:flex-row md:items-center md:px-12 md:py-12">
+      <div className="relative mx-auto flex max-w-6xl flex-col gap-12 justify-between rounded-4xl bg-[#562190] px-6 py-10 text-white md:flex-row md:items-center md:px-12 md:py-12">
         {/* LEFT: fixed video + thumbs */}
-        <div className="flex w-full justify-center md:w-[40%]">
+        <div className="flex w-full justify-center md:justify-start md:w-[40%]">
           <div className="relative rounded-[28px] bg-[#3D1076] p-3 shadow-xl">
             <div className="overflow-hidden rounded-3xl bg-black">
               <video
-                src="/videos/testimonial1.mp4"
+                src="/Assets/video/video2tc.mp4"
                 autoPlay
                 muted
                 loop
                 playsInline
-                className="h-[340px] w-[220px] object-cover md:h-[450px] md:w-80"
+                className="h-[400px] w-[250px] object-cover md:h-[500px] md:w-80"
               />
             </div>
           </div>
@@ -94,7 +113,7 @@ export default function TestimonialsSection() {
             </span>
           </h2>
           {/* Quote row with yellow arrows */}
-          <div className="mt-6 flex items-center justify-center gap-6">
+          {/* <div className="mt-6 flex items-center justify-center gap-6">
             <button
               onClick={prev}
               className="text-[#FFC52B] text-2xl font-extrabold hover:opacity-80 transition"
@@ -114,11 +133,28 @@ export default function TestimonialsSection() {
             >
               →
             </button>
-          </div>
+          </div> */}
           {/* Body text */}
-          <p className="mt-4 mx-auto max-w-xl text-xs md:text-sm leading-relaxed text-[#EAD7FF]">
-            {t.message}
-          </p>
+          <div className="mt-6 mb-12 flex items-center justify-center gap-6">
+            <button
+              onClick={prev}
+              className="text-[#FFC52B] text-2xl font-extrabold hover:opacity-80 transition"
+              aria-label="Previous testimonial"
+            >
+              ←
+            </button>
+
+            <p className="mt-4 mx-auto max-w-xl text-xs md:text-sm leading-relaxed text-[#EAD7FF]">
+              {t.message}
+            </p>
+            <button
+              onClick={next}
+              className="text-[#FFC52B] text-2xl font-extrabold hover:opacity-80 transition"
+              aria-label="Next testimonial"
+            >
+              →
+            </button>
+          </div>
           {/* Avatar + name */}
           <div className="flex items-center gap-3 mt-6 justify-center">
             <div className="h-12 w-12 overflow-hidden rounded-full border-2 border-[#FFC52B] bg-white">
@@ -137,9 +173,12 @@ export default function TestimonialsSection() {
           </div>
           {/* Button */}
           <div className="flex md:justify-end justify-center">
-            <button className="rounded-full bg-white px-6 py-3 text-xs z-10 mt-10 font-semibold uppercase tracking-wide text-[#6C30A4] shadow-md hover:bg-[#F7F2FF] transition">
+            <Link
+              href="/book" // 👈 change this to your actual booking page path
+              className="rounded-full bg-white px-6 py-3 text-xs z-10 mt-10 font-semibold uppercase tracking-wide text-[#6C30A4] shadow-md hover:bg-[#F7F2FF] transition"
+            >
               Book Your Seat Now
-            </button>
+            </Link>
           </div>
         </div>
       </div>

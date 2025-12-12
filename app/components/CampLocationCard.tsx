@@ -1,20 +1,21 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import { FaMapLocationDot } from "react-icons/fa6";
 
 export default function CampCard() {
   return (
     <section className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-12 px-4 py-20 lg:flex-row lg:items-stretch lg:gap-16 lg:py-16">
       {/* LEFT SECTION */}
-      <div className="relative w-full max-w-lg rounded-[28px] bg-[#7F3EDF] shadow-lg">
+      <div className="relative w-full max-w-lg rounded-3xl bg-[#562190] shadow-lg">
         {/* Main Image */}
-        <div className="overflow-hidden rounded-t-[28px]">
+        <div className="overflow-hidden rounded-t-3xl">
           <Image
-            src="/Assets/images/whiteschool.webp"
+            src="/Assets/images/wscampus.webp"
             alt="The White School International"
             width={480}
             height={360}
-            className="h-110 w-full object-fill"
+            className="h-110 w-full object-fill pr-2 pl-2 pt-2 rounded-t-3xl"
           />
         </div>
 
@@ -41,11 +42,11 @@ export default function CampCard() {
         </div>
 
         {/* Bottom location bar */}
-        <div className="flex items-start gap-3 rounded-b-[28px] bg-[#5E2AA5] px-5 py-3 text-white">
-          <span className="mt-1 text-lg">📍</span>
+        <div className="flex items-start gap-3 rounded-b-3xl bg-[#562190] px-5 py-6 text-white">
+          <FaMapLocationDot className="mt-1 text-2xl text-white items-center justify-center" />
           <div className="flex flex-col leading-tight">
-            <span className="text-base font-semibold">The White School</span>
-            <span className="text-sm font-medium">
+            <span className="text-xl font-bold">The White School</span>
+            <span className="text-lg font-semibold">
               International, Kozhikode
             </span>
           </div>
@@ -53,7 +54,7 @@ export default function CampCard() {
       </div>
 
       {/* RIGHT SECTION */}
-      <div className="mx-auto flex w-full max-w-lg flex-col items-center justify-around rounded-[28px] bg-[#EDE0FF] px-5 py-8 shadow-md sm:px-8 sm:py-10">
+      <div className="mx-auto flex w-full max-w-lg flex-col items-center justify-around rounded-3xl bg-[#E5D8FC] px-5 py-8 shadow-md sm:px-8 sm:py-10">
         {/* Logo */}
         <div className="mb-6 flex justify-center sm:mb-8">
           <Image

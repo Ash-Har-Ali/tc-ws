@@ -50,7 +50,7 @@ export default function Navbar() {
   return (
     <>
       {/* Outer fixed bar */}
-      <header className="fixed inset-x-0 top-0 z-50">
+      <header className="fixed inset-x-0 top-0 z-50 px-2">
         {/* Animated inner container */}
         <motion.div
           initial={{
@@ -75,7 +75,7 @@ export default function Navbar() {
           className="max-w-7xl mx-auto px-5 mt-"
         >
           <nav
-            className="flex items-center justify-between w-full md:py-0 py-2"
+            className="flex items-center justify-between w-full py-3"
             aria-label="Main navigation"
           >
             {/* Logo */}

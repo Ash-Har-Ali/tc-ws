@@ -27,8 +27,8 @@ const items = [
 
 export default function HighlightsSection() {
   return (
-    <section className="w-full bg-white py-14">
-      <div className="mx-auto flex max-w-6xl items-end justify-center gap-6 px-6">
+    <section className="w-full bg-white py-20">
+      <div className="mx-auto flex md:flex-row flex-col max-w-6xl items-center justify-between gap-6 px-6">
         {items.map((item, index) => {
           const staggerClass =
             index === 1 || index === 3
@@ -38,7 +38,7 @@ export default function HighlightsSection() {
           return (
             <div
               key={item.title}
-              className={`flex w-[180px] flex-col overflow-hidden rounded-3xl bg-white shadow-md transition-transform ${staggerClass}`}
+              className={`flex w-[250px] flex-col overflow-hidden rounded-3xl bg-white shadow-md transition-transform ${staggerClass}`}
             >
               {/* fixed image height */}
               <div className="h-60 w-full overflow-hidden">

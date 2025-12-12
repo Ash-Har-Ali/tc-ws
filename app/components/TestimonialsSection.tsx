@@ -166,7 +166,7 @@ export default function TestimonialsSection() {
           {/* CTA Button */}
           <div className="flex md:justify-end justify-center">
             <Link
-              href="/book"
+              href="https://wa.me/918075917297?text=I%20want%20to%20know%20more%20about%20Tinkerchamps"
               className="rounded-full bg-white px-6 py-3 text-xs z-10 mt-10 font-semibold uppercase tracking-wide text-[#6C30A4] shadow-md hover:bg-[#F7F2FF] transition"
             >
               Book Your Seat Now

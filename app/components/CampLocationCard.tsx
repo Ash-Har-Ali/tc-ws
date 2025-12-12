@@ -5,6 +5,7 @@ import { FaMapLocationDot } from "react-icons/fa6";
 import { FaClock } from "react-icons/fa6";
 import { FaRegCalendarDays } from "react-icons/fa6";
 import { RiGraduationCapFill } from "react-icons/ri";
+import Link from "next/link";
 
 export default function CampCard() {
   return (
@@ -91,12 +92,17 @@ export default function CampCard() {
           </div>
 
           {/* Book Now */}
-          <button className="flex items-center justify-center gap-3 rounded-xl bg-[#562190] px-4 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-[#6a2db3] md:col-span-2">
+          <Link
+            href="https://wa.me/918075917297?text=I%20want%20to%20know%20more%20about%20Tinkerchamps"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-3 rounded-xl bg-[#562190] px-4 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-[#6a2db3] md:col-span-2"
+          >
             <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FBCE3E] text-lg text-black">
               <RiGraduationCapFill />
             </span>
             <span>Book Now</span>
-          </button>
+          </Link>
         </div>
       </div>
     </section>

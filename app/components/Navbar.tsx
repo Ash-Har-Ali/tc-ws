@@ -6,7 +6,6 @@ import { useState, useEffect } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import { IoChevronForwardOutline } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
-import { usePathname } from "next/navigation";
 
 type NavItem = {
   href: string;
@@ -14,7 +13,7 @@ type NavItem = {
 };
 
 const NAV_ITEMS: NavItem[] = [
-  { href: "/", label: "Home" },
+  { href: "#hero", label: "Home" }, // 👈 make sure your hero has id="hero"
   { href: "#about", label: "About" },
   { href: "#venue", label: "Venue" },
   { href: "#testimonials", label: "Testimonials" },
@@ -22,16 +21,32 @@ const NAV_ITEMS: NavItem[] = [
 ];
 
 export default function Navbar() {
-  const pathname = usePathname() || "/";
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("hero");
 
-  // Scroll: only to toggle "scrolled" state
+  // Track scroll to highlight current section & navbar style
   useEffect(() => {
+    const sectionIds = NAV_ITEMS.map((item) => item.href.replace("#", ""));
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
+
+      let current = sectionIds[0] || "hero";
+      for (const id of sectionIds) {
+        const section = document.getElementById(id);
+        if (!section) continue;
+
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= window.innerHeight * 0.3) {
+          current = id;
+        }
+      }
+      setActiveSection(current);
     };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // run once on mount
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -40,18 +55,12 @@ export default function Navbar() {
     document.body.style.overflow = isOpen ? "hidden" : "";
   }, [isOpen]);
 
-  const handleNavClick = () => setIsOpen(false);
-
-  const isItemActive = (href: string) => {
-    if (href === "/") return pathname === "/";
-    return pathname === href || pathname.startsWith(href);
-  };
+  const closeMenu = () => setIsOpen(false);
 
   return (
     <>
       {/* Outer fixed bar */}
       <header className="fixed inset-x-0 top-0 z-50 px-2">
-        {/* Animated inner container */}
         <motion.div
           initial={{
             y: -20,
@@ -63,29 +72,25 @@ export default function Navbar() {
           animate={{
             y: isScrolled ? 8 : 0,
             opacity: 1,
-            borderRadius: isScrolled ? 16 : 16,
+            borderRadius: 16,
             backgroundColor: isScrolled ? "#562190" : "rgba(0,0,0,0)",
             boxShadow: isScrolled ? "0 0 24px rgba(86,33,144,0.4)" : "none",
           }}
-          transition={{ type: "spring", stiffness: 200, damping: 26 }}
-          style={{
-            backdropFilter: isScrolled ? "none" : "none",
-            WebkitBackdropFilter: isScrolled ? "none" : "none",
-          }}
-          className="max-w-7xl mx-auto px-5 mt-"
+          transition={{ type: "spring", stiffness: 180, damping: 24 }} // a bit softer
+          className="max-w-7xl mx-auto px-5"
         >
           <nav
             className="flex items-center justify-between w-full py-3"
             aria-label="Main navigation"
           >
-            {/* Logo */}
-            <Link href="/">
+            {/* Logo → scroll to hero */}
+            <Link href="#hero" scroll={true}>
               <Image
                 src="/Assets/images/logo.webp"
                 alt="Company Logo"
                 width={90}
                 height={70}
-                className="object-contain"
+                className="object-contain cursor-pointer"
                 priority
               />
             </Link>
@@ -93,13 +98,14 @@ export default function Navbar() {
             {/* Desktop Nav Items */}
             <div className="hidden lg:flex items-center gap-2 text-base font-semibold text-white border-2 border-[#D9D9D9] rounded-full px-2 py-1 bg-[#562190]/60 backdrop-blur-md">
               {NAV_ITEMS.map((item) => {
-                const active = isItemActive(item.href);
+                const isActive = activeSection === item.href.replace("#", "");
                 return (
                   <Link
                     key={item.href}
                     href={item.href}
-                    className={`px-5 py-2 rounded-full transition-all duration-200 cursor-pointer ${
-                      active
+                    scroll={true}
+                    className={`px-5 py-2 rounded-full transition-all duration-300 cursor-pointer ${
+                      isActive
                         ? "bg-white text-[#562190]"
                         : "text-white hover:text-white hover:bg-[#562190]/40"
                     }`}
@@ -113,8 +119,8 @@ export default function Navbar() {
             {/* CTA Button */}
             <div className="hidden lg:flex items-center">
               <Link
-                href="/contactUs"
-                className="flex items-center px-5 py-2 rounded-full text-white text-base font-semibold border-2 border-[#D9D9D9] hover:bg-white hover:text-[#562190] transition-colors duration-200"
+                href="https://wa.me/918075917297?text=I%20want%20to%20know%20more%20about%20Tinkerchamps"
+                className="flex items-center px-5 py-2 rounded-full text-white text-base font-semibold border-2 border-[#D9D9D9] hover:bg-white hover:text-[#562190] transition-colors duration-300"
               >
                 <span className="flex items-center gap-2">
                   Book Now <IoChevronForwardOutline className="text-2xl" />
@@ -124,7 +130,7 @@ export default function Navbar() {
 
             {/* Mobile Toggle */}
             <button
-              className="lg:hidden text-3xl text-white z-9999"
+              className="lg:hidden text-3xl text-white z-50"
               onClick={() => setIsOpen((prev) => !prev)}
               aria-label={isOpen ? "Close menu" : "Open menu"}
               aria-expanded={isOpen}
@@ -169,34 +175,39 @@ export default function Navbar() {
               >
                 <div className="bg-[#562190]/90 border border-[#562190] rounded-2xl mt-3 mb-2 backdrop-blur-md">
                   <div className="p-4 flex flex-col items-center text-center space-y-2">
-                    {NAV_ITEMS.map((item, idx) => (
-                      <motion.div
-                        key={item.href}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: idx * 0.08 }}
-                        className="w-[80%]"
-                      >
-                        <Link
-                          href={item.href}
-                          onClick={handleNavClick}
-                          className={`flex justify-center items-center w-full px-4 py-3 rounded-full text-base font-semibold transition-all duration-200 ${
-                            isItemActive(item.href)
-                              ? "bg-white text-[#562190]"
-                              : "text-white hover:bg-white/20"
-                          }`}
+                    {NAV_ITEMS.map((item, idx) => {
+                      const isActive =
+                        activeSection === item.href.replace("#", "");
+                      return (
+                        <motion.div
+                          key={item.href}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: idx * 0.08 }}
+                          className="w-[80%]"
                         >
-                          {item.label}
-                        </Link>
-                      </motion.div>
-                    ))}
+                          <Link
+                            href={item.href}
+                            scroll={true}
+                            onClick={closeMenu}
+                            className={`flex justify-center items-center w-full px-4 py-3 rounded-full text-base font-semibold transition-all duration-300 ${
+                              isActive
+                                ? "bg-white text-[#562190]"
+                                : "text-white hover:bg-white/20"
+                            }`}
+                          >
+                            {item.label}
+                          </Link>
+                        </motion.div>
+                      );
+                    })}
                   </div>
 
                   <div className="border-t border-white/10 p-4 flex flex-col items-center text-center space-y-3">
                     <Link
-                      href="/contactUs"
-                      onClick={handleNavClick}
-                      className="flex items-center justify-center gap-2 px-6 py-3 rounded-full text-white font-bold text-base border border-white hover:bg_white hover:text-[#562190] transition-all duration-200"
+                      href="https://wa.me/918075917297?text=I%20want%20to%20know%20more%20about%20Tinkerchamps"
+                      onClick={closeMenu}
+                      className="flex items-center justify-center gap-2 px-6 py-3 rounded-full text-white font-bold text-base border border-white hover:bg-white hover:text-[#562190] transition-all duration-300"
                     >
                       Book Now
                       <IoChevronForwardOutline className="text-xl" />
@@ -218,7 +229,7 @@ export default function Navbar() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             className="fixed inset-0 bg-black/30 backdrop-blur-sm z-40 md:hidden"
-            onClick={() => setIsOpen(false)}
+            onClick={closeMenu}
           />
         )}
       </AnimatePresence>

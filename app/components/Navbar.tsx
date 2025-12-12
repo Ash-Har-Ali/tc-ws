@@ -72,10 +72,10 @@ export default function Navbar() {
             backdropFilter: isScrolled ? "none" : "none",
             WebkitBackdropFilter: isScrolled ? "none" : "none",
           }}
-          className="max-w-7xl mx-auto px-5 mt-2"
+          className="max-w-7xl mx-auto px-5 mt-"
         >
           <nav
-            className="flex items-center justify-between w-full md:py-1 py-2"
+            className="flex items-center justify-between w-full md:py-0 py-2"
             aria-label="Main navigation"
           >
             {/* Logo */}
@@ -83,15 +83,15 @@ export default function Navbar() {
               <Image
                 src="/Assets/images/logo.webp"
                 alt="Company Logo"
-                width={80}
-                height={60}
+                width={90}
+                height={70}
                 className="object-contain"
                 priority
               />
             </Link>
 
             {/* Desktop Nav Items */}
-            <div className="hidden lg:flex items-center gap-2 text-base font-semibold text-white border border-[#562190] rounded-full px-2 py-1 bg-[#562190]/60 backdrop-blur-md">
+            <div className="hidden lg:flex items-center gap-2 text-base font-semibold text-white border-2 border-[#D9D9D9] rounded-full px-2 py-1 bg-[#562190]/60 backdrop-blur-md">
               {NAV_ITEMS.map((item) => {
                 const active = isItemActive(item.href);
                 return (
@@ -101,7 +101,7 @@ export default function Navbar() {
                     className={`px-5 py-2 rounded-full transition-all duration-200 cursor-pointer ${
                       active
                         ? "bg-white text-[#562190]"
-                        : "text-white/80 hover:text-white hover:bg-[#562190]/40"
+                        : "text-white hover:text-white hover:bg-[#562190]/40"
                     }`}
                   >
                     {item.label}
@@ -114,7 +114,7 @@ export default function Navbar() {
             <div className="hidden lg:flex items-center">
               <Link
                 href="/contactUs"
-                className="flex items-center px-5 py-2 rounded-full text-white text-base font-semibold border-2 border-[#562190] hover:bg-white hover:text-[#562190] transition-colors duration-200"
+                className="flex items-center px-5 py-2 rounded-full text-white text-base font-semibold border-2 border-[#D9D9D9] hover:bg-white hover:text-[#562190] transition-colors duration-200"
               >
                 <span className="flex items-center gap-2">
                   Contact Now <IoChevronForwardOutline className="text-2xl" />

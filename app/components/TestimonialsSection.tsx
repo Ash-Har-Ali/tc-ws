@@ -49,7 +49,7 @@ export default function TestimonialsSection() {
     setCurrent((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
 
   return (
-    <section className="relative w-full bg-[#F3E8FF] py-16 px-4 overflow-hidden">
+    <section className="relative w-full  py-16 px-4 overflow-hidden">
       {/* Background shapes */}
       <div className="pointer-events-none absolute -bottom-24 -left-12 h-64 w-80 rounded-t-full bg-[#E4CFFF]" />
       <div className="pointer-events-none absolute -bottom-6 right-10 h-40 w-40">

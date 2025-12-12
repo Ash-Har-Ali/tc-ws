@@ -42,8 +42,8 @@ export default function CampCard() {
         </div>
 
         {/* Bottom location bar */}
-        <div className="flex items-start gap-3 rounded-b-3xl bg-[#562190] px-5 py-6 text-white">
-          <FaMapLocationDot className="mt-1 text-2xl text-white items-center justify-center" />
+        <div className="flex items-center gap-6 rounded-b-[20px] bg-[#562190] px-5 py-4 text-white">
+          <FaMapLocationDot className="text-4xl text-white shrink-0" />
           <div className="flex flex-col leading-tight">
             <span className="text-xl font-bold">The White School</span>
             <span className="text-lg font-semibold">

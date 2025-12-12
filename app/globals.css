@@ -1,18 +1,6 @@
 @import "tailwindcss";
 
-/* Define base colors */
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
 
-/* Optional: Dark mode */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 /* Optional: custom utilities */
 @layer utilities {

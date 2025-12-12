@@ -15,10 +15,10 @@ type NavItem = {
 
 const NAV_ITEMS: NavItem[] = [
   { href: "/", label: "Home" },
-  { href: "/aboutUs", label: "About" },
-  { href: "/services", label: "Services" },
-  { href: "/works", label: "Our Work" },
-  { href: "/contactUs", label: "Contact" },
+  { href: "#about", label: "About" },
+  { href: "#venue", label: "Venue" },
+  { href: "#testimonials", label: "Testimonials" },
+  { href: "#gallery", label: "Gallery" },
 ];
 
 export default function Navbar() {
@@ -117,7 +117,7 @@ export default function Navbar() {
                 className="flex items-center px-5 py-2 rounded-full text-white text-base font-semibold border-2 border-[#D9D9D9] hover:bg-white hover:text-[#562190] transition-colors duration-200"
               >
                 <span className="flex items-center gap-2">
-                  Contact Now <IoChevronForwardOutline className="text-2xl" />
+                  Book Now <IoChevronForwardOutline className="text-2xl" />
                 </span>
               </Link>
             </div>
@@ -198,7 +198,7 @@ export default function Navbar() {
                       onClick={handleNavClick}
                       className="flex items-center justify-center gap-2 px-6 py-3 rounded-full text-white font-bold text-base border border-white hover:bg_white hover:text-[#562190] transition-all duration-200"
                     >
-                      Contact Now
+                      Book Now
                       <IoChevronForwardOutline className="text-xl" />
                     </Link>
                   </div>

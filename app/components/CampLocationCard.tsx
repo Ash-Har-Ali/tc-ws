@@ -8,7 +8,10 @@ import { RiGraduationCapFill } from "react-icons/ri";
 
 export default function CampCard() {
   return (
-    <section className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-12 px-4 py-20 lg:flex-row lg:items-stretch lg:gap-16 lg:py-16">
+    <section
+      id="venue"
+      className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-12 px-4 py-20 lg:flex-row lg:items-stretch lg:gap-16 lg:py-16"
+    >
       {/* LEFT SECTION */}
       <div className="relative w-full max-w-lg rounded-3xl bg-[#562190] shadow-lg">
         {/* Main Image */}

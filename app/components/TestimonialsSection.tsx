@@ -54,6 +54,7 @@ const testimonials: Testimonial[] = [
 
 export default function TestimonialsSection() {
   const [current, setCurrent] = useState(0);
+  const [muted, setMuted] = useState(true); // 👈 state for mute/unmute
   const t = testimonials[current];
 
   const next = () => setCurrent((p) => (p + 1) % testimonials.length);
@@ -61,10 +62,13 @@ export default function TestimonialsSection() {
     setCurrent((p) => (p === 0 ? testimonials.length - 1 : p - 1));
 
   return (
-    <section className="relative w-full bg-[#ffffff] py-16 px-4 overflow-hidden">
+    <section
+      id="testimonials"
+      className="relative w-full bg-[#ffffff] py-16 px-4 overflow-hidden"
+    >
       {/* Background shapes */}
       <div className="pointer-events-none absolute -bottom-24 -left-12 h-64 w-80 rounded-t-full bg-[#ffffff]" />
-      <div className=" hidden md:flex pointer-events-none absolute -bottom-6 right-10 h-80 w-80 z-5">
+      <div className="hidden md:flex pointer-events-none absolute -bottom-6 right-10 h-80 w-80 z-5">
         <svg
           viewBox="0 0 120 120"
           className="h-full w-full"
@@ -82,28 +86,35 @@ export default function TestimonialsSection() {
 
       {/* Purple card */}
       <div className="relative mx-auto flex max-w-6xl flex-col gap-12 justify-between rounded-4xl bg-[#562190] px-6 py-10 text-white md:flex-row md:items-center md:px-12 md:py-12">
-        {/* LEFT: fixed video + thumbs */}
+        {/* LEFT: video with mute button */}
         <div className="flex w-full justify-center md:justify-start md:w-[40%]">
           <div className="relative rounded-[28px] bg-[#3D1076] p-3 shadow-xl">
-            <div className="overflow-hidden rounded-3xl bg-black">
+            <div className="overflow-hidden rounded-3xl bg-black relative">
               <video
                 src="/Assets/video/video2tc.mp4"
                 autoPlay
                 loop
                 playsInline
+                muted={muted} // 👈 dynamically mute/unmute
                 className="h-[400px] w-[250px] object-cover md:h-[500px] md:w-80"
               />
+              {/* Mute/Unmute Button */}
+              <button
+                onClick={() => setMuted((prev) => !prev)}
+                className="absolute bottom-4 right-4 bg-[#562190]/80 hover:bg-[#6C30A4] text-white rounded-full p-2 text-xs md:text-sm transition"
+                aria-label={muted ? "Unmute video" : "Mute video"}
+              >
+                {muted ? "🔇" : "🔊"}
+              </button>
             </div>
           </div>
         </div>
-        {/* RIGHT: text  */}
 
+        {/* RIGHT: text */}
         <div className="w-full md:w-[60%] text-center">
-          {/* Small label */}
           <p className="text-xs font-semibold uppercase tracking-wider text-[#FBC333]">
             Testimonials
           </p>
-          {/* Heading */}
           <h2 className="mt-1 text-2xl md:text-4xl font-black leading-tight tracking-wider">
             VOICE OF ADVENTURE FROM
             <br />
@@ -111,29 +122,8 @@ export default function TestimonialsSection() {
               KID&apos;S <span className="text-[#FFC52B]">PARENTS</span>
             </span>
           </h2>
-          {/* Quote row with yellow arrows */}
-          {/* <div className="mt-6 flex items-center justify-center gap-6">
-            <button
-              onClick={prev}
-              className="text-[#FFC52B] text-2xl font-extrabold hover:opacity-80 transition"
-              aria-label="Previous testimonial"
-            >
-              ←
-            </button>
 
-            <p className="max-w-xl text-lg md:text-xl font-semibold">
-              {t.quote}
-            </p>
-
-            <button
-              onClick={next}
-              className="text-[#FFC52B] text-2xl font-extrabold hover:opacity-80 transition"
-              aria-label="Next testimonial"
-            >
-              →
-            </button>
-          </div> */}
-          {/* Body text */}
+          {/* Testimonial message with arrows */}
           <div className="mt-6 mb-12 flex items-center justify-center gap-6">
             <button
               onClick={prev}
@@ -146,6 +136,7 @@ export default function TestimonialsSection() {
             <p className="mt-4 mx-auto max-w-xl text-xs md:text-sm leading-relaxed text-[#EAD7FF]">
               {t.message}
             </p>
+
             <button
               onClick={next}
               className="text-[#FFC52B] text-2xl font-extrabold hover:opacity-80 transition"
@@ -154,6 +145,7 @@ export default function TestimonialsSection() {
               →
             </button>
           </div>
+
           {/* Avatar + name */}
           <div className="flex items-center gap-3 mt-6 justify-center">
             <div className="h-12 w-12 overflow-hidden rounded-full border-2 border-[#FFC52B] bg-white">
@@ -170,10 +162,11 @@ export default function TestimonialsSection() {
               <p className="text-xs text-[#F3D9FF]">{t.role}</p>
             </div>
           </div>
-          {/* Button */}
+
+          {/* CTA Button */}
           <div className="flex md:justify-end justify-center">
             <Link
-              href="/book" // 👈 change this to your actual booking page path
+              href="/book"
               className="rounded-full bg-white px-6 py-3 text-xs z-10 mt-10 font-semibold uppercase tracking-wide text-[#6C30A4] shadow-md hover:bg-[#F7F2FF] transition"
             >
               Book Your Seat Now

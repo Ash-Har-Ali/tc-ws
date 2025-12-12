@@ -75,7 +75,7 @@ function ScrollingRow({ images, direction = "left", speed = 45 }: RowProps) {
 
 export default function GallerySection() {
   return (
-    <section className="w-screen py-16 overflow-hidden">
+    <section id="gallery" className="w-screen py-16 overflow-hidden">
       <div className="space-y-8">
         <ScrollingRow images={row1} direction="left" speed={45} />
         <ScrollingRow images={row2} direction="right" speed={40} />

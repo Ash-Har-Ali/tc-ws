@@ -2,6 +2,9 @@
 import React from "react";
 import Image from "next/image";
 import { FaMapLocationDot } from "react-icons/fa6";
+import { FaClock } from "react-icons/fa6";
+import { FaRegCalendarDays } from "react-icons/fa6";
+import { RiGraduationCapFill } from "react-icons/ri";
 
 export default function CampCard() {
   return (
@@ -69,25 +72,25 @@ export default function CampCard() {
         {/* Info Grid */}
         <div className="grid gap-4 md:grid-cols-2">
           {/* Date */}
-          <div className="flex items-center gap-3 rounded-xl bg-white px-4 py-3 text-sm font-semibold text-[#4C2380] shadow-sm">
-            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FDD835]/40 text-lg">
-              🗓️
+          <div className="flex items-center gap-3 rounded-xl bg-[#F1EAFD] px-4 py-3 text-sm font-semibold text-[#4C2380] shadow-sm">
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FBCE3E] text-lg text-black">
+              <FaRegCalendarDays />
             </span>
             <span>December 24 – 26</span>
           </div>
 
           {/* Duration */}
-          <div className="flex items-center gap-3 rounded-xl bg-white px-4 py-3 text-sm font-semibold text-[#4C2380] shadow-sm">
-            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FDD835]/40 text-lg">
-              ⏱️
+          <div className="flex items-center gap-3 rounded-xl bg-[#F1EAFD] px-4 py-3 text-sm font-semibold text-[#4C2380] shadow-sm">
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FBCE3E] text-lg text-black">
+              <FaClock />
             </span>
             <span>3 Days, 2 Nights</span>
           </div>
 
           {/* Book Now */}
-          <button className="flex items-center justify-center gap-3 rounded-xl bg-[#FFC52B] px-4 py-3 text-sm font-semibold text-[#4C2380] shadow-md transition hover:bg-[#ffce4d] md:col-span-2">
-            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/80 text-lg">
-              📨
+          <button className="flex items-center justify-center gap-3 rounded-xl bg-[#562190] px-4 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-[#6a2db3] md:col-span-2">
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FBCE3E] text-lg text-black">
+              <RiGraduationCapFill />
             </span>
             <span>Book Now</span>
           </button>

@@ -49,7 +49,6 @@ export default function AboutSection() {
             <video
               src="/Assets/video/video1tc.mp4"
               autoPlay
-              muted
               loop
               playsInline
               className="h-full w-full object-cover"

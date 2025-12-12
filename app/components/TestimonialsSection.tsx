@@ -89,7 +89,6 @@ export default function TestimonialsSection() {
               <video
                 src="/Assets/video/video2tc.mp4"
                 autoPlay
-                muted
                 loop
                 playsInline
                 className="h-[400px] w-[250px] object-cover md:h-[500px] md:w-80"

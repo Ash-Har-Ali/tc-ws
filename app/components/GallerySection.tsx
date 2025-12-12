@@ -5,36 +5,30 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const row1 = [
-  "/gallery/g1.jpg",
-  "/gallery/g2.jpg",
-  "/gallery/g3.jpg",
-  "/gallery/g4.jpg",
-  "/gallery/g5.jpg",
-  "/gallery/g6.jpg",
-  "/gallery/g7.jpg",
-  "/gallery/g8.jpg",
+  "/Assets/Gallery/1.jpg",
+  "/Assets/Gallery/2.JPG",
+  "/Assets/Gallery/3.jpg",
+  "/Assets/Gallery/4.png",
+  "/Assets/Gallery/5.JPG",
+  "/Assets/Gallery/6.JPG",
 ];
 
 const row2 = [
-  "/gallery/g9.jpg",
-  "/gallery/g10.jpg",
-  "/gallery/g11.jpg",
-  "/gallery/g12.jpg",
-  "/gallery/g13.jpg",
-  "/gallery/g14.jpg",
-  "/gallery/g15.jpg",
-  "/gallery/g16.jpg",
+  "/Assets/Gallery/7.jpg",
+  "/Assets/Gallery/8.jpg",
+  "/Assets/Gallery/9.jpg",
+  "/Assets/Gallery/10.jpg",
+  "/Assets/Gallery/11.jpg",
+  "/Assets/Gallery/12.png",
 ];
 
 const row3 = [
-  "/gallery/g17.jpg",
-  "/gallery/g18.jpg",
-  "/gallery/g19.jpg",
-  "/gallery/g20.jpg",
-  "/gallery/g21.jpg",
-  "/gallery/g22.jpg",
-  "/gallery/g23.jpg",
-  "/gallery/g24.jpg",
+  "/Assets/Gallery/13.jpg",
+  "/Assets/Gallery/14.jpg",
+  "/Assets/Gallery/15.jpg",
+  "/Assets/Gallery/16.jpg",
+  "/Assets/Gallery/17.jpg",
+  "/Assets/Gallery/18.jpg",
 ];
 
 type RowProps = {

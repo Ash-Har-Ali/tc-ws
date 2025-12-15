@@ -1,8 +1,29 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 export default function AboutSection() {
-  const [muted, setMuted] = useState(true); // 👈 state for mute/unmute
+  const [muted, setMuted] = useState(true); // start muted so autoplay works
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          // 👇 Only mute when it's NOT visible
+          if (!entry.isIntersecting) {
+            setMuted(true);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section
@@ -53,11 +74,12 @@ export default function AboutSection() {
           {/* Main video card */}
           <div className="relative h-[450px] w-[310px] lg:h-[500px] lg:w-[340px] overflow-hidden rounded-2xl bg-black shadow-xl">
             <video
+              ref={videoRef}
               src="/Assets/video/video1tc.mp4"
               autoPlay
               loop
               playsInline
-              muted={muted} // 👈 toggle mute dynamically
+              muted={muted}
               className="h-full w-full object-cover"
             >
               Your browser does not support the video tag.

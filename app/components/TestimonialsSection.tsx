@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -54,16 +54,49 @@ const testimonials: Testimonial[] = [
 
 export default function TestimonialsSection() {
   const [current, setCurrent] = useState(0);
-  const [muted, setMuted] = useState(true); // 👈 state for mute/unmute
+  const [muted, setMuted] = useState(true); // start muted
   const t = testimonials[current];
+
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const sectionRef = useRef<HTMLElement | null>(null);
 
   const next = () => setCurrent((p) => (p + 1) % testimonials.length);
   const prev = () =>
     setCurrent((p) => (p === 0 ? testimonials.length - 1 : p - 1));
 
+  useEffect(() => {
+    const section = sectionRef.current;
+    const video = videoRef.current;
+    if (!section || !video) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // 👇 Section is visible → play video
+            video.play().catch(() => {
+              // autoplay might be blocked, ignore silently
+            });
+            // don't touch muted here → let user control it
+          } else {
+            // 👇 Section is out of view → pause & mute
+            video.pause();
+            setMuted(true);
+          }
+        });
+      },
+      { threshold: 0.3 } // 30% of section visible
+    );
+
+    observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section
       id="testimonials"
+      ref={sectionRef}
       className="relative w-full bg-[#ffffff] py-16 px-4 overflow-hidden"
     >
       {/* Background shapes */}
@@ -91,11 +124,12 @@ export default function TestimonialsSection() {
           <div className="relative rounded-[28px] bg-[#3D1076] p-3 shadow-xl">
             <div className="overflow-hidden rounded-3xl bg-black relative">
               <video
+                ref={videoRef}
                 src="/Assets/video/video2tc.mp4"
-                autoPlay
+                // 🔥 Removed autoPlay so it only plays when section is visible
                 loop
                 playsInline
-                muted={muted} // 👈 dynamically mute/unmute
+                muted={muted}
                 className="h-[400px] w-[250px] object-cover md:h-[500px] md:w-80"
               />
               {/* Mute/Unmute Button */}

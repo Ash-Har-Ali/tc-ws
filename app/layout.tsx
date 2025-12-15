@@ -20,7 +20,7 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: "Tinkerchamps",
-  description: "Tinkerchamps Website",
+  description: "Rewiring Young Minds for a Limitless Future",
 };
 
 export default function RootLayout({

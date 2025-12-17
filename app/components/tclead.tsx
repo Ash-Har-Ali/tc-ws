@@ -16,13 +16,13 @@ export default function Tclead() {
       {/* RIGHT SECTION */}
       <div className="mx-auto flex w-full max-w-lg flex-col items-center justify-around rounded-3xl bg-[#E5D8FC] px-5 py-8 shadow-md sm:px-8 sm:py-10">
         {/* Logo */}
-        <div className="mb-6 flex justify-center">
+        <div className="mb- flex justify-center">
           <Image
-            src="/Assets/images/logo.webp"
+            src="/Assets/images/TCS18.webp"
             alt="TinkerChamps Logo"
             width={250}
             height={250}
-            className="h-auto w-[200px] md:w-[300px]"
+            className="h-auto w-[250px] md:w-[350px]"
           />
         </div>
 

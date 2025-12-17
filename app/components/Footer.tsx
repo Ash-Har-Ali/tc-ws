@@ -48,11 +48,11 @@ export default function Footer() {
         <div className="mt-8 flex flex-col items-center justify-center gap-3 px-6">
           {/* Logo */}
           <Image
-            src="/Assets/images/logo.webp"
+            src="/Assets/images/TCLogo.webp"
             alt="TinkerChamps Logo"
             width={240}
             height={100}
-            className="h-auto w-[220px] md:w-[260px]"
+            className="h-auto w-[220px] md:w-[300px]"
           />
 
           {/* Social Links */}

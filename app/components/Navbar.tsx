@@ -86,8 +86,8 @@ export default function Navbar() {
             {/* Logo → scroll to hero */}
             <Link href="#hero" scroll={true}>
               <Image
-                src="/Assets/images/logo.webp"
-                alt="Company Logo"
+                src="/Assets/images/TCLogo.webp"
+                alt="Tinkerchamps Logo"
                 width={90}
                 height={70}
                 className="object-contain cursor-pointer"

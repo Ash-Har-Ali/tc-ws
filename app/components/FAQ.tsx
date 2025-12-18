@@ -9,29 +9,45 @@ interface FAQ {
 
 const faqs: FAQ[] = [
   {
-    question: "What is TinkerChamps?",
+    question: "What is TinkerChamps and what is its main objective?",
     answer:
-      "TinkerChamps is a life-design learning experience that helps students build confidence, creativity, leadership, and real-world problem-solving skills.",
+      "TinkerChamps is a hands-on learning program designed to help students explore technology, creativity, and problem-solving through real-world projects. The main objective is to develop thinking skills, curiosity, and confidence, rather than focusing only on technical knowledge.",
   },
   {
-    question: "Who can attend TinkerChamps?",
+    question: "Who can participate in TinkerChamps?",
     answer:
-      "The program is designed for school students who want to learn beyond textbooks and develop future-ready skills.",
+      "TinkerChamps is suitable for students from Grades 6 to 12. The program is structured into age-appropriate levels, ensuring beginners feel comfortable while advanced learners remain challenged.",
   },
   {
-    question: "How long is the program?",
+    question: "What skills will students gain from TinkerChamps?",
     answer:
-      "TinkerChamps typically runs for 3 days and 2 nights with structured activities, mentoring, and reflection sessions.",
+      "Students develop logical and critical thinking, problem-solving and design thinking, creativity and an innovation mindset, collaboration and communication skills, and a basic understanding of technology, robotics, and AI concepts. These skills are valuable across academics and future careers.",
   },
   {
-    question: "Are food and accommodation included?",
+    question: "How is TinkerChamps different from regular learning sessions?",
     answer:
-      "Yes. Accommodation, meals, and all learning materials are included for a safe and comfortable experience.",
+      "Unlike conventional programs that rely heavily on lectures and PPT-based sessions, TinkerChamps focuses on real-world, real-time learning. Students work on practical challenges, observe real-life problems, and build meaningful solutions that connect learning directly to life.",
   },
   {
-    question: "How can I book a seat?",
+    question: "What teaching methodology is followed in TinkerChamps?",
     answer:
-      "You can book a seat directly through the website using the “Book Your Seat Now” button.",
+      "TinkerChamps follows a learning-by-doing approach. Sessions are interactive and project-driven, where students explore concepts, build prototypes, test ideas, and learn from both success and failure under mentor guidance.",
+  },
+  {
+    question:
+      "Will students receive certification after completing TinkerChamps?",
+    answer:
+      "Yes. Students receive a Certificate of Participation or Completion that recognizes their learning journey, projects worked on, and skills developed during the program.",
+  },
+  {
+    question: "Is TinkerChamps aligned with school academics?",
+    answer:
+      "Yes. The program complements school education by strengthening logic, application-based thinking, and conceptual clarity, which indirectly improves performance in subjects like science, mathematics, and computer studies.",
+  },
+  {
+    question: "How does TinkerChamps benefit students in the long term?",
+    answer:
+      "TinkerChamps helps students build a future-ready mindset. Early exposure to problem-solving, technology, and self-reflection prepares students to make informed academic and career choices while boosting confidence and adaptability.",
   },
 ];
 
@@ -44,7 +60,7 @@ export default function FAQSection() {
 
   return (
     <section className="w-full bg-white py-24 px-4">
-      <div className="mx-auto max-w-4xl">
+      <div className="mx-auto max-w-5xl">
         {/* Header */}
         <div className="mb-14 text-center">
           {/* <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#FBC333]">

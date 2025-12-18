@@ -156,7 +156,7 @@ export default function FAQSection() {
 
   return (
     <section className="w-full bg-white py-24 px-4">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className="mb-14 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-[#6C30A4] mb-1 tracking-wider mt-10">
@@ -167,15 +167,15 @@ export default function FAQSection() {
           </p>
         </div>
 
-        {/* FAQ List */}
-        <div className="space-y-4">
+        {/* FAQ List (2 Columns) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
 
             return (
               <div
                 key={index}
-                className="rounded-xl border border-gray-200 overflow-hidden"
+                className="h-fit rounded-xl border border-gray-200 overflow-hidden"
               >
                 {/* Question */}
                 <button

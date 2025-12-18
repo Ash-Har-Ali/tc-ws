@@ -2,6 +2,7 @@
 import AboutSection from "./components/AboutSection";
 import CampLocationCard from "./components/CampLocationCard";
 import CampsStats from "./components/CampsStats";
+import FAQSection from "./components/FAQ";
 import GallerySection from "./components/GallerySection";
 import HeroSection from "./components/HeroSection";
 import ProgramBenefits from "./components/ProgramBenefits";
@@ -19,6 +20,7 @@ export default function HomePage() {
       <ProgramBenefits />
       <TestimonialsSection />
       <GallerySection />
+      <FAQSection />
     </main>
   );
 }

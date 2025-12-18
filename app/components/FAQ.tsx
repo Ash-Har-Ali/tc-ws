@@ -155,10 +155,10 @@ export default function FAQSection() {
   };
 
   return (
-    <section className="w-full bg-white py-24 px-4">
+    <section className="w-full bg-white pb-20 px-4">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
-        <div className="mb-14 text-center">
+        <div className="mb-10 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-[#6C30A4] mb-1 tracking-wider mt-10">
             Frequently Asked Questions
           </h2>
@@ -168,7 +168,7 @@ export default function FAQSection() {
         </div>
 
         {/* FAQ List (2 Columns) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:px-3">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
 

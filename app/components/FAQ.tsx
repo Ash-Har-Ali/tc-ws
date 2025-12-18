@@ -4,50 +4,146 @@ import { useState } from "react";
 
 interface FAQ {
   question: string;
-  answer: string;
+  answer: React.ReactNode;
 }
 
 const faqs: FAQ[] = [
   {
     question: "What is TinkerChamps and what is its main objective?",
-    answer:
-      "TinkerChamps is a hands-on learning program designed to help students explore technology, creativity, and problem-solving through real-world projects. The main objective is to develop thinking skills, curiosity, and confidence, rather than focusing only on technical knowledge.",
+    answer: (
+      <>
+        <p>
+          TinkerChamps is a hands-on learning program designed to help students
+          explore technology, creativity, and problem-solving through real-world
+          projects.
+        </p>
+        <p className="mt-1">
+          The objective is to develop thinking skills, curiosity, and
+          confidence, not just technical knowledge.
+        </p>
+      </>
+    ),
   },
   {
     question: "Who can participate in TinkerChamps?",
-    answer:
-      "TinkerChamps is suitable for students from Grades 6 to 12. The program is structured into age-appropriate levels, ensuring beginners feel comfortable while advanced learners remain challenged.",
+    answer: (
+      <>
+        <p>TinkerChamps is suitable for students from Grades 6 to 12.</p>
+        <p className="mt-1">
+          The program is designed in age appropriate levels, ensuring beginners
+          feel comfortable while advanced learners stay challenged.
+        </p>
+      </>
+    ),
   },
   {
     question: "What skills will students gain from TinkerChamps?",
-    answer:
-      "Students develop logical and critical thinking, problem-solving and design thinking, creativity and an innovation mindset, collaboration and communication skills, and a basic understanding of technology, robotics, and AI concepts. These skills are valuable across academics and future careers.",
+    answer: (
+      <>
+        <p>Students develop:</p>
+        <ul className="mt-1 list-disc pl-5 space-y-1">
+          <li>Logical and critical thinking</li>
+          <li>Problem-solving and design thinking</li>
+          <li>Creativity and innovation mindset</li>
+          <li>Collaboration and communication skills</li>
+          <li>Basic understanding of technology, robotics, and AI concepts</li>
+        </ul>
+        <p className="mt-1">
+          These skills are useful across academics and future careers, not
+          limited to engineering.
+        </p>
+      </>
+    ),
   },
   {
     question: "How is TinkerChamps different from regular learning sessions?",
-    answer:
-      "Unlike conventional programs that rely heavily on lectures and PPT-based sessions, TinkerChamps focuses on real-world, real-time learning. Students work on practical challenges, observe real-life problems, and build meaningful solutions that connect learning directly to life.",
+    answer: (
+      <>
+        <p>
+          Unlike conventional programs that rely heavily on PPTs, lectures, and
+          one-way sessions, TinkerChamps is built around real-world, real-time
+          change-making.
+        </p>
+        <p className="mt-1">
+          Students engage with practical challenges, observe problems around
+          them, and work on solutions that have meaning and relevance, helping
+          them see how learning connects directly to life.
+        </p>
+      </>
+    ),
   },
   {
-    question: "What teaching methodology is followed in TinkerChamps?",
-    answer:
-      "TinkerChamps follows a learning-by-doing approach. Sessions are interactive and project-driven, where students explore concepts, build prototypes, test ideas, and learn from both success and failure under mentor guidance.",
+    question: "What is the teaching methodology followed in TinkerChamps?",
+    answer: (
+      <>
+        <p>TinkerChamps follows a learning-by-doing approach.</p>
+        <p className="mt-1">
+          Sessions are interactive and project-driven, where students explore
+          concepts, build prototypes, test ideas, and learn from both success
+          and failure under mentor guidance.
+        </p>
+      </>
+    ),
   },
   {
     question:
-      "Will students receive certification after completing TinkerChamps?",
-    answer:
-      "Yes. Students receive a Certificate of Participation or Completion that recognizes their learning journey, projects worked on, and skills developed during the program.",
+      "Will students receive any certification after completing TinkerChamps?",
+    answer: (
+      <p>
+        Yes. Students receive a Certificate of Participation / Completion,
+        recognizing their learning journey, projects worked on, and skills
+        developed during the program.
+      </p>
+    ),
   },
   {
     question: "Is TinkerChamps aligned with school academics?",
-    answer:
-      "Yes. The program complements school education by strengthening logic, application-based thinking, and conceptual clarity, which indirectly improves performance in subjects like science, mathematics, and computer studies.",
+    answer: (
+      <>
+        <p>
+          Yes. The program complements school learning by strengthening logic,
+          application-based thinking, and conceptual clarity.
+        </p>
+        <p className="mt-1">
+          This indirectly improves performance in subjects like science,
+          mathematics, and computer studies.
+        </p>
+      </>
+    ),
   },
   {
     question: "How does TinkerChamps benefit students in the long term?",
-    answer:
-      "TinkerChamps helps students build a future-ready mindset. Early exposure to problem-solving, technology, and self-reflection prepares students to make informed academic and career choices while boosting confidence and adaptability.",
+    answer: (
+      <>
+        <p>TinkerChamps helps students build a future-ready mindset.</p>
+        <p className="mt-1">
+          Early exposure to problem-solving, technology, and self-reflection
+          prepares them to make informed academic and career choices while
+          boosting confidence and adaptability.
+        </p>
+      </>
+    ),
+  },
+  {
+    question:
+      "Are prior technical or coding skills required to join TinkerChamps?",
+    answer: (
+      <p>
+        No. TinkerChamps is designed for beginners as well as advanced learners.
+        Students are guided step-by-step, and no prior technical knowledge is
+        required to participate.
+      </p>
+    ),
+  },
+  {
+    question: "How are students guided and supported during the program?",
+    answer: (
+      <p>
+        Students are guided by trained mentors who facilitate activities,
+        encourage exploration, and support learning through continuous feedback
+        and reflection throughout the program.
+      </p>
+    ),
   },
 ];
 
@@ -60,12 +156,9 @@ export default function FAQSection() {
 
   return (
     <section className="w-full bg-white py-24 px-4">
-      <div className="mx-auto max-w-5xl">
+      <div className="mx-auto max-w-6xl">
         {/* Header */}
         <div className="mb-14 text-center">
-          {/* <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#FBC333]">
-            FAQs
-          </p> */}
           <h2 className="text-4xl md:text-5xl font-bold text-[#6C30A4] mb-1 tracking-wider mt-10">
             Frequently Asked Questions
           </h2>
@@ -74,7 +167,7 @@ export default function FAQSection() {
           </p>
         </div>
 
-        {/* FAQ list */}
+        {/* FAQ List */}
         <div className="space-y-4">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
@@ -92,8 +185,6 @@ export default function FAQSection() {
                   }`}
                 >
                   {faq.question}
-
-                  {/* Icon */}
                   <span
                     className={`text-2xl font-bold transition-transform duration-300 ${
                       isOpen ? "rotate-45" : "rotate-0"
@@ -103,7 +194,7 @@ export default function FAQSection() {
                   </span>
                 </button>
 
-                {/* Answer (PURE CSS animation) */}
+                {/* Answer */}
                 <div
                   className={`grid transition-all duration-300 ease-in-out ${
                     isOpen
@@ -112,7 +203,7 @@ export default function FAQSection() {
                   }`}
                 >
                   <div
-                    className={`overflow-hidden text-sm font-light leading-relaxed text-black bg-[#F1EAFD] transition-all duration-300 ${
+                    className={`overflow-hidden text-sm leading-relaxed text-black bg-[#F1EAFD] transition-all duration-300 ${
                       isOpen ? "px-6 pb-6 pt-" : "p-0"
                     }`}
                   >

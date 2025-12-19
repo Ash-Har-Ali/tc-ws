@@ -80,7 +80,7 @@ export default function Navbar() {
           className="max-w-7xl mx-auto px-5"
         >
           <nav
-            className="flex items-center justify-between w-full py-3"
+            className="flex items-center justify-between w-full md:py-3"
             aria-label="Main navigation"
           >
             {/* Logo → scroll to hero */}

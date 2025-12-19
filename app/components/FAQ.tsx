@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 interface FAQ {
   question: string;
@@ -155,7 +156,13 @@ export default function FAQSection() {
   };
 
   return (
-    <section className="w-full bg-white pb-20 px-4">
+    <motion.section
+      className="w-full bg-white pb-20 px-4"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: true }}
+    >
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className="mb-10 text-center">
@@ -167,17 +174,20 @@ export default function FAQSection() {
           </p>
         </div>
 
-        {/* FAQ List (2 Columns) */}
+        {/* FAQ List */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:px-3">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
 
             return (
-              <div
+              <motion.div
                 key={index}
                 className="h-fit rounded-xl border border-gray-200 overflow-hidden"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                viewport={{ once: true }}
               >
-                {/* Question */}
                 <button
                   onClick={() => toggleFAQ(index)}
                   className={`w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-[#562190] transition-colors duration-300 ${
@@ -194,7 +204,6 @@ export default function FAQSection() {
                   </span>
                 </button>
 
-                {/* Answer */}
                 <div
                   className={`grid transition-all duration-300 ease-in-out ${
                     isOpen
@@ -210,11 +219,11 @@ export default function FAQSection() {
                     {faq.answer}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

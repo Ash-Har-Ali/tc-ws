@@ -80,6 +80,7 @@ function ScrollingRow({ images, direction = "left", speed = 45 }: RowProps) {
               fill
               className="object-cover"
               sizes="12.5vw"
+              loading="lazy"
             />
           </div>
         ))}

@@ -14,8 +14,8 @@ const faqs: FAQ[] = [
       <>
         <p>
           TinkerChamps is a hands-on learning program designed to help students
-          explore technology, creativity, and problem-solving through real-world
-          projects.
+          explore technology, creativity, and problem-solving through real -
+          world projects.
         </p>
         <p className="mt-1">
           The objective is to develop thinking skills, curiosity, and

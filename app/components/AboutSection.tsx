@@ -63,7 +63,7 @@ export default function AboutSection() {
       </div>
 
       {/* Right side: video + badge */}
-      <div className="relative mt-16 flex flex-1 justify-end lg:mt-0 lg:justify-end">
+      <div className="relative mt-16 flex flex-1 justify-center lg:mt-0 lg:justify-end">
         <div className="relative">
           {/* Yellow offset card */}
           <div

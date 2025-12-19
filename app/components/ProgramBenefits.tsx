@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const items = [
   {
@@ -28,7 +29,7 @@ const items = [
 export default function HighlightsSection() {
   return (
     <section className="w-full bg-white py-20 md:pt-25">
-      <div className="mx-auto flex md:flex-row flex-col max-w-6xl items-center justify-between gap-6 px-6">
+      <div className="mx-auto flex max-w-6xl flex-col md:flex-row items-center justify-between gap-6 px-6">
         {items.map((item, index) => {
           const staggerClass =
             index === 1 || index === 3
@@ -36,28 +37,40 @@ export default function HighlightsSection() {
               : "md:translate-y-0";
 
           return (
-            <div
+            <motion.div
               key={item.title}
-              className={`flex w-[300px] flex-col overflow-hidden rounded-3xl bg-white shadow-md transition-transform ${staggerClass}`}
+              className={`
+                flex w-[300px] flex-col overflow-hidden rounded-3xl bg-white shadow-md
+                ${staggerClass}
+                sticky top-24 md:static
+              `}
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{
+                duration: 0.6,
+                ease: "easeOut",
+                delay: index * 0.15,
+              }}
             >
-              {/* fixed image height */}
+              {/* Image */}
               <div className="md:h-65 h-70 w-full overflow-hidden">
                 <Image
                   src={item.img}
                   alt={item.title}
-                  width={180}
+                  width={300}
                   height={240}
                   className="h-full w-full object-cover"
                 />
               </div>
 
-              {/* fixed purple block height */}
+              {/* Text block */}
               <div className="flex md:h-35 py-6 items-center justify-center bg-[#562190] px-8 text-center">
-                <p className="text- font-semibold leading-snug text-white ">
+                <p className="font-semibold leading-snug text-white">
                   {item.title}
                 </p>
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </div>

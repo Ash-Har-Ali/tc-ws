@@ -169,7 +169,7 @@ export default function TestimonialsSection() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
-                className="mx-auto max-w-xl text-xs md:text-sm leading-relaxed text-[#EAD7FF]"
+                className="mx-auto max-w-2xl text-sm leading-relaxed text-[#EAD7FF]"
               >
                 {t.message}
               </motion.p>
@@ -206,7 +206,7 @@ export default function TestimonialsSection() {
               </div>
               <div className="text-left">
                 <p className="text-sm font-semibold">{t.name}</p>
-                <p className="text-xs text-[#F3D9FF]">{t.role}</p>
+                <p className="text-xs text-[#F3D9FF] max-w-[180px]">{t.role}</p>
               </div>
             </motion.div>
           </AnimatePresence>

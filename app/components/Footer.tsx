@@ -37,7 +37,7 @@ export default function Footer() {
           <div className="flex justify-center">
             <Link
               href="https://wa.me/918075917297?text=I%20want%20to%20know%20more%20about%20Tinkerchamps"
-              className="rounded-xl bg-[#E5D8FC] px-6 py-3 text-sm font-bold text-[#562190] shadow-md transition hover:bg-white"
+              className="rounded-xl bg-[#E5D8FC] px-6 py-3 text-sm font-bold text-[#562190] shadow-md transition hover:bg-[#FBC333]"
             >
               Secure Your Child&apos;s Seat
             </Link>

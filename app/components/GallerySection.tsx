@@ -38,6 +38,7 @@ const row4 = [
   "/Assets/Gallery/16.jpg",
   "/Assets/Gallery/12.png",
 ];
+
 const row5 = [
   "/Assets/Gallery/12.png",
   "/Assets/Gallery/6.JPG",
@@ -60,7 +61,7 @@ function ScrollingRow({ images, direction = "left", speed = 45 }: RowProps) {
   return (
     <div className="relative overflow-hidden">
       <motion.div
-        className="flex gap-4"
+        className="flex gap-4 will-change-transform "
         animate={{ x: [from, to] }}
         transition={{
           repeat: Infinity,
@@ -70,19 +71,24 @@ function ScrollingRow({ images, direction = "left", speed = 45 }: RowProps) {
         }}
       >
         {allImages.map((src, i) => (
-          <div
+          <motion.div
             key={`${src}-${i}`}
             className="relative md:h-[200px] md:min-w-[300px] h-[120px] min-w-40 overflow-hidden rounded-xl bg-black"
+            // whileHover={{ scale: 1.06 }}
+            // transition={{ duration: 0.4, ease: "easeOut" }}
           >
             <Image
               src={src}
               alt="Gallery"
               fill
-              className="object-cover"
+              className="object-cover rounded-xl"
               sizes="12.5vw"
               loading="lazy"
             />
-          </div>
+
+            {/* soft hover overlay */}
+            <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors duration-300" />
+          </motion.div>
         ))}
       </motion.div>
     </div>
@@ -91,27 +97,55 @@ function ScrollingRow({ images, direction = "left", speed = 45 }: RowProps) {
 
 export default function GallerySection() {
   return (
-    <section id="gallery" className="py-16 overflow-hidden">
+    <motion.section
+      id="gallery"
+      className="py-16 overflow-hidden"
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      viewport={{ once: true }}
+    >
       <div className="space-y-4">
-        {/* Row 1 – always visible */}
-        <ScrollingRow images={row1} direction="left" speed={45} />
+        {/* Row 1 */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <ScrollingRow images={row1} direction="left" speed={45} />
+        </motion.div>
 
-        {/* Row 2 – always visible */}
-        <ScrollingRow images={row2} direction="right" speed={40} />
+        {/* Row 2 */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          viewport={{ once: true }}
+        >
+          <ScrollingRow images={row2} direction="right" speed={40} />
+        </motion.div>
 
-        {/* Row 3 – always visible */}
-        <ScrollingRow images={row3} direction="left" speed={45} />
+        {/* Row 3 */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          viewport={{ once: true }}
+        >
+          <ScrollingRow images={row3} direction="left" speed={45} />
+        </motion.div>
 
-        {/* Row 4 – MOBILE ONLY */}
+        {/* Row 4 – mobile only */}
         <div className="block md:hidden">
           <ScrollingRow images={row4} direction="right" speed={40} />
         </div>
 
-        {/* Row 4 – MOBILE ONLY */}
+        {/* Row 5 – mobile only */}
         <div className="block md:hidden">
           <ScrollingRow images={row5} direction="left" speed={45} />
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

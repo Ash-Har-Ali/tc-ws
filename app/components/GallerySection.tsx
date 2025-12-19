@@ -103,7 +103,7 @@ export default function GallerySection() {
 
         {/* Row 4 – MOBILE ONLY */}
         <div className="block md:hidden">
-          <ScrollingRow images={row4} direction="right" speed={42} />
+          <ScrollingRow images={row4} direction="right" speed={40} />
         </div>
 
         {/* Row 4 – MOBILE ONLY */}

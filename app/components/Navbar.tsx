@@ -88,8 +88,8 @@ export default function Navbar() {
               <Image
                 src="/Assets/images/TCLogo.webp"
                 alt="Tinkerchamps Logo"
-                width={90}
-                height={70}
+                width={100}
+                height={75}
                 className="object-contain cursor-pointer"
                 priority
               />

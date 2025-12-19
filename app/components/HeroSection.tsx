@@ -28,14 +28,14 @@ export default function HeroSection() {
             <div className="flex flex-wrap items-center gap-4">
               <Link
                 href="https://wa.me/918075917297?text=I%20want%20to%20know%20more%20about%20Tinkerchamps"
-                className="bg-[#E5D8FC] text-[#3D1076] px-8 py-2 rounded-full font-bold text-center hover:bg-[#FBC333] transition-colors duration-300"
+                className="bg-[#E5D8FC] text-[#3D1076] px-6 py-2 rounded-full font-bold text-center hover:bg-[#FBC333] transition-colors duration-300"
               >
                 Book Your Seats
               </Link>
 
               <Link
                 href="https://wa.me/918075917297?text=I%20want%20to%20know%20more%20about%20Tinkerchamps"
-                className="border-2 border-[#E5D8FC] text-[#E5D8FC] px-8 py-2 rounded-full font-bold text-center hover:bg-[#E5D8FC] hover:text-[#4C2380] transition-colors duration-300"
+                className="border-2 border-[#E5D8FC] text-[#E5D8FC] px-6 py-2 rounded-full font-bold text-center hover:bg-[#E5D8FC] hover:text-[#4C2380] transition-colors duration-300"
               >
                 Chat With Academic Counsellor
               </Link>

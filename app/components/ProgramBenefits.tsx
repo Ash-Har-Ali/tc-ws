@@ -32,29 +32,33 @@ export default function HighlightsSection() {
       <div className="mx-auto flex max-w-6xl flex-col md:flex-row items-center justify-between gap-6 px-6">
         {items.map((item, index) => {
           const staggerClass =
-            index === 1 || index === 3
-              ? "md:-translate-y-10"
-              : "md:translate-y-0";
+            index === 1 || index === 3 ? "md:-translate-y-10" : "";
 
           return (
             <motion.div
               key={item.title}
+              layout="position"
               className={`
                 flex w-[300px] flex-col overflow-hidden rounded-3xl bg-white shadow-md
+                sticky top-24
                 ${staggerClass}
-                sticky top-24 md:static
+                will-change-transform
               `}
-              initial={{ opacity: 0, y: 60 }}
+              style={{
+                transform: "translateZ(0)", // 🔥 critical for mobile repaint
+                backfaceVisibility: "hidden",
+              }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, amount: 0.35 }}
               transition={{
-                duration: 0.6,
+                duration: 0.5,
                 ease: "easeOut",
-                delay: index * 0.15,
+                delay: index * 0.12,
               }}
             >
               {/* Image */}
-              <div className="md:h-65 h-70 w-full overflow-hidden">
+              <div className="h-70 w-full overflow-hidden">
                 <Image
                   src={item.img}
                   alt={item.title}
@@ -64,8 +68,8 @@ export default function HighlightsSection() {
                 />
               </div>
 
-              {/* Text block */}
-              <div className="flex md:h-35 py-6 items-center justify-center bg-[#562190] px-8 text-center">
+              {/* Text */}
+              <div className="flex py-6 items-center justify-center bg-[#562190] px-8 text-center">
                 <p className="font-semibold leading-snug text-white">
                   {item.title}
                 </p>

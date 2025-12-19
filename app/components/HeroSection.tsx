@@ -6,14 +6,14 @@ import Link from "next/link";
 export default function HeroSection() {
   return (
     <section id="hero" className="p-2 rounded-xl ">
-      <div className="relative bg-linear-to-r from-[#4C2380] to-[#7F3EDF]  text-white py-20 lg:py-30 2xl:py-40 rounded-xl overflow-hidden md:h-[97vh] ">
+      <div className="relative bg-linear-to-r from-[#4C2380] to-[#7F3EDF]  text-white py-20 lg:py-30 2xl:py-30 rounded-xl overflow-hidden md:h-[97vh] ">
         {/* Grid overlay */}
         <div className="absolute inset-0 bg-[url('/Assets/images/hero-banner.webp')] md:bg-[url('/Assets/images/hero-banner.webp')] bg-cover bg-center bg-rounded-3xl  opacity-100 pointer-events-none z-0" />
 
         <div className="flex max-w-7xl mx-auto flex-col md:flex-row px-6 justify-between">
           {/* Text Content */}
           <div className="space-y-6 text-white z-10 pt-25 py-20">
-            <h1 className="text-4xl font-black font-primary leading-tight tracking-wider lg:text-5xl 2xl:text-6xl">
+            <h1 className="text-4xl font-black font-primary leading-tight tracking-wider lg:text-5xl ">
               REWIRING
               <br />
               YOUNG MINDS FOR

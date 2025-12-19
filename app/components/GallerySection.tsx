@@ -41,7 +41,7 @@ const row4 = [
 const row5 = [
   "/Assets/Gallery/12.png",
   "/Assets/Gallery/6.JPG",
-  "/Assets/Gallery/13.jpg",
+  "/Assets/Gallery/3.jpg",
   "/Assets/Gallery/8.jpg",
   "/Assets/Gallery/18.jpg",
 ];
@@ -103,7 +103,7 @@ export default function GallerySection() {
 
         {/* Row 4 – MOBILE ONLY */}
         <div className="block md:hidden">
-          <ScrollingRow images={row4} direction="right" speed={40} />
+          <ScrollingRow images={row4} direction="right" speed={42} />
         </div>
 
         {/* Row 4 – MOBILE ONLY */}

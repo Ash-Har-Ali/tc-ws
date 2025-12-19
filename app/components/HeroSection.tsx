@@ -6,9 +6,9 @@ import Link from "next/link";
 export default function HeroSection() {
   return (
     <section id="hero" className="p-2 rounded-xl ">
-      <div className="relative bg-linear-to-r from-[#4C2380] to-[#7F3EDF]  text-white py-16 2xl:py-30 rounded-xl overflow-hidden ">
+      <div className="relative bg-linear-to-r from-[#4C2380] to-[#7F3EDF]  text-white py-20 lg:py-30 2xl:py-30 rounded-xl overflow-hidden md:h-[97vh] ">
         {/* Grid overlay */}
-        <div className="absolute inset-0 bg-[url('/Assets/images/hero-banner.webp')] md:bg-[url('/Assets/images/hero-banner.webp')] bg-cover bg-center  opacity-100 pointer-events-none z-0" />
+        <div className="absolute inset-0 bg-[url('/Assets/images/hero-banner.webp')] md:bg-[url('/Assets/images/hero-banner.webp')] bg-cover bg-center bg-rounded-3xl  opacity-100 pointer-events-none z-0" />
 
         <div className="flex max-w-7xl mx-auto flex-col md:flex-row px-6 justify-between">
           {/* Text Content */}
@@ -20,7 +20,7 @@ export default function HeroSection() {
               <br />A LIMITLESS <span className="text-[#FBC333]">FUTURE</span>
             </h1>
 
-            <p className="max-w-xl text-sm leading-relaxed text-white/80">
+            <p className="max-w-xl text-sm leading-relaxed text-white">
               A life-design experience that transforms how children think, learn
               and create – through adventure, play, and future-ready skills.
             </p>
@@ -49,7 +49,7 @@ export default function HeroSection() {
                 src="/Assets/images/hero-image.webp"
                 alt="Students learning"
                 fill
-                className="object-contain scale-110"
+                className="object-contain scale-110 "
               />
             </div>
           </div>

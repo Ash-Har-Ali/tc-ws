@@ -60,7 +60,7 @@ export default function Navbar() {
   return (
     <>
       {/* Outer fixed bar */}
-      <header className="fixed inset-x-0 top-0 z-50 px-2">
+      <header className="fixed inset-x-0 top-1 z-50 px-2">
         <motion.div
           initial={{
             y: -20,
@@ -88,8 +88,8 @@ export default function Navbar() {
               <Image
                 src="/Assets/images/TCLogo.webp"
                 alt="Tinkerchamps Logo"
-                width={90}
-                height={70}
+                width={100}
+                height={75}
                 className="object-contain cursor-pointer"
                 priority
               />

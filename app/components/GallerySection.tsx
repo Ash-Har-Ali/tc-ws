@@ -43,7 +43,7 @@ function ScrollingRow({ images, direction = "left", speed = 45 }: RowProps) {
   const to = direction === "left" ? "-50%" : "0%";
 
   return (
-    <div className="relative w-screen overflow-hidden">
+    <div className="relative overflow-hidden">
       <motion.div
         className="flex gap-4"
         animate={{ x: [from, to] }}
@@ -75,7 +75,7 @@ function ScrollingRow({ images, direction = "left", speed = 45 }: RowProps) {
 
 export default function GallerySection() {
   return (
-    <section id="gallery" className="w-screen py-16 overflow-hidden">
+    <section id="gallery" className="py-16 overflow-hidden">
       <div className="space-y-8">
         <ScrollingRow images={row1} direction="left" speed={45} />
         <ScrollingRow images={row2} direction="right" speed={40} />

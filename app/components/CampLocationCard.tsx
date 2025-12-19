@@ -67,7 +67,7 @@ export default function CampCard() {
         </div>
 
         {/* RIGHT SECTION */}
-        <div className="mx-auto flex w-full max-w-lg flex-col items-center justify-around rounded-3xl bg-[#E5D8FC] px-5 py-8 shadow-md sm:px-8 sm:py-10">
+        <div className="mx- flex w-full max-w-lg flex-col items-center justify-around rounded-3xl bg-[#E5D8FC] py-8 shadow-md  sm:py-10">
           {/* Logo */}
           <div className="mb- flex justify-center">
             <Image

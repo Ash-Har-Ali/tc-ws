@@ -14,7 +14,7 @@ export default function Tclead() {
       className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-12 px-4 py-20 lg:flex-row lg:items-stretch lg:gap-16 lg:py-0 lg:pb-16"
     >
       {/* RIGHT SECTION */}
-      <div className="mx-auto flex w-full max-w-lg flex-col items-center justify-around rounded-3xl bg-[#E5D8FC] px-5 py-8 shadow-md sm:px-8 sm:py-10">
+      <div className="mx- flex w-full max-w-lg flex-col items-center justify-around rounded-3xl bg-[#E5D8FC] px- py-8 shadow-md sm:px- sm:py-10">
         {/* Logo */}
         <div className="mb- flex justify-center">
           <Image

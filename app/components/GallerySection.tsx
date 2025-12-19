@@ -17,7 +17,7 @@ const row2 = [
   "/Assets/Gallery/7.jpg",
   "/Assets/Gallery/8.jpg",
   "/Assets/Gallery/9.jpg",
-  "/Assets/Gallery/10.jpg",
+  "/Assets/Gallery/16.jpg",
   "/Assets/Gallery/11.jpg",
   "/Assets/Gallery/12.png",
 ];
@@ -26,8 +26,23 @@ const row3 = [
   "/Assets/Gallery/13.jpg",
   "/Assets/Gallery/14.jpg",
   "/Assets/Gallery/15.jpg",
-  "/Assets/Gallery/16.jpg",
+  "/Assets/Gallery/10.jpg",
   "/Assets/Gallery/17.jpg",
+  "/Assets/Gallery/18.jpg",
+];
+
+const row4 = [
+  "/Assets/Gallery/1.jpg",
+  "/Assets/Gallery/7.jpg",
+  "/Assets/Gallery/13.jpg",
+  "/Assets/Gallery/16.jpg",
+  "/Assets/Gallery/12.png",
+];
+const row5 = [
+  "/Assets/Gallery/12.png",
+  "/Assets/Gallery/6.JPG",
+  "/Assets/Gallery/13.jpg",
+  "/Assets/Gallery/8.jpg",
   "/Assets/Gallery/18.jpg",
 ];
 
@@ -57,7 +72,7 @@ function ScrollingRow({ images, direction = "left", speed = 45 }: RowProps) {
         {allImages.map((src, i) => (
           <div
             key={`${src}-${i}`}
-            className="relative h-[200px] min-w-[300px] overflow-hidden rounded-[20px] bg-black"
+            className="relative md:h-[200px] md:min-w-[300px] h-[120px] min-w-40 overflow-hidden rounded-xl bg-black"
           >
             <Image
               src={src}
@@ -76,10 +91,25 @@ function ScrollingRow({ images, direction = "left", speed = 45 }: RowProps) {
 export default function GallerySection() {
   return (
     <section id="gallery" className="py-16 overflow-hidden">
-      <div className="space-y-8">
+      <div className="space-y-4">
+        {/* Row 1 – always visible */}
         <ScrollingRow images={row1} direction="left" speed={45} />
+
+        {/* Row 2 – always visible */}
         <ScrollingRow images={row2} direction="right" speed={40} />
+
+        {/* Row 3 – always visible */}
         <ScrollingRow images={row3} direction="left" speed={45} />
+
+        {/* Row 4 – MOBILE ONLY */}
+        <div className="block md:hidden">
+          <ScrollingRow images={row4} direction="right" speed={40} />
+        </div>
+
+        {/* Row 4 – MOBILE ONLY */}
+        <div className="block md:hidden">
+          <ScrollingRow images={row5} direction="right" speed={45} />
+        </div>
       </div>
     </section>
   );
